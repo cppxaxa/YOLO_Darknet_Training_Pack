@@ -16,5 +16,5 @@ All the steps are just scripted in *.cmd files to easily launch the apps.
 
 # Tutorial
 
-Please refer http://youtube.com/cppxaxa containig the tutorial
+Please refer https://www.youtube.com/watch?v=mYXJij_5kcg containing the tutorial
 
