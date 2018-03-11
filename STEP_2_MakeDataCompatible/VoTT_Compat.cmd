@@ -1,1 +1,1 @@
-start VoTT2Darknet_MakeDataCompatible\VoTT2Darknet_MakeDataCompatible\bin\Release\VoTT2Darknet_MakeDataCompatible.exe
+start VoTT2Darknet_MakeDataCompatible\VoTT2Darknet_MakeDataCompatible\bin\Release\VoTT2Darknet_MakeDataCompatible.exe ..\VoTT_Results

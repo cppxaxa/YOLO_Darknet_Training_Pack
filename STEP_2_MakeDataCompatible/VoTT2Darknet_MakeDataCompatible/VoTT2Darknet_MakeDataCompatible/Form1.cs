@@ -13,9 +13,16 @@ namespace VoTT2Darknet_MakeDataCompatible
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        public Form1(string _path = "")
         {
             InitializeComponent();
+
+            if (_path != "")
+            {
+                string path = Path.GetFullPath(_path);
+                if (Directory.Exists(path))
+                    txtVottResultsPath.Text = path;
+            }
 
             if (File.Exists("VoTTResultsPath.txt"))
             {
@@ -47,6 +54,9 @@ namespace VoTT2Darknet_MakeDataCompatible
                 txtVottResultsPath.Text = txtVottResultsPath.Text.Substring(0, txtVottResultsPath.Text.Length - 1);
 
             //MessageBox.Show(txtVottResultsPath.Text);
+
+            /* Make Test and Train file compatible
+             */
 
             string relativePathToTestFile = @"data\test.txt";
             string relativePathToTrainFile = @"data\train.txt";
@@ -109,6 +119,65 @@ namespace VoTT2Darknet_MakeDataCompatible
             }
 
             TestFileWriter.Close();
+
+
+
+
+
+
+
+
+            /* Mod cfg file and set subdivision to 16
+             */
+
+            string relativePathToCfgFile = @"yolo-obj.cfg";
+            string[] CfgFileLines = File.ReadAllLines(txtVottResultsPath.Text + "\\" + relativePathToCfgFile);
+
+            var writer = File.CreateText(txtVottResultsPath.Text + "\\" + relativePathToCfgFile);
+
+            foreach (var line in CfgFileLines)
+            {
+                //Console.WriteLine(line);
+
+                string[] keyValue = line.Split('=');
+
+                if (keyValue.Length > 1)
+                {
+                    string[] valueArray = new string[keyValue.Length - 1];
+                    for (int i = 1; i < keyValue.Length; i++)
+                        valueArray[i - 1] = keyValue[i];
+
+                    string key = keyValue[0];
+                    string value = String.Join("", valueArray);
+
+
+                    // Modification conditions
+
+                    if (key.Trim() == "subdivisions")
+                    {
+                        value = "16";
+
+                        Console.WriteLine("\t\tSubdivisions Changes to " + value);
+                    }
+
+                    //Console.WriteLine(key);
+
+                    writer.WriteLine(key + "=" + value);
+                }
+                else
+                    writer.WriteLine(line);
+            }
+
+            writer.Close();
+
+
+
+
+
+            /* Create backup folder in VoTT_Results
+             */
+
+            Directory.CreateDirectory(txtVottResultsPath.Text + "\\backup");
 
 
 
