@@ -1,5 +1,7 @@
 # YOLO Darknet Training Toolkit Pack
 
+Code Source: https://github.com/cppxaxa/YOLO_Darknet_Training_Pack
+
 AlexeyAB Darknet for compiling darknet: https://github.com/AlexeyAB/darknet
 
 Reference Tutorial: https://timebutt.github.io/static/how-to-train-yolov2-to-detect-custom-objects/
@@ -14,5 +16,5 @@ All the steps are just scripted in *.cmd files to easily launch the apps.
 
 # Tutorial
 
-Please refer https://www.youtube.com/watch?v=mYXJij_5kcg containing the tutorial
+Please refer http://youtube.com/cppxaxa containig the tutorial
 
