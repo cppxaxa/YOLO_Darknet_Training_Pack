@@ -1,6 +1,7 @@
-# Yolo-v2 Windows and Linux version
+# ORIGINAL Source
+https://github.com/AlexeyAB/darknet
 
-[![CircleCI](https://circleci.com/gh/AlexeyAB/darknet.svg?style=svg)](https://circleci.com/gh/AlexeyAB/darknet)
+# Yolo-v2 Windows and Linux version
 
 1. [How to use](#how-to-use)
 2. [How to compile on Linux](#how-to-compile-on-linux)
